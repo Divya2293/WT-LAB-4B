@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            function validate() {
+                var a = document.forms.name.value;
+                if (a == "") {
+                    alert("Name is empty");
+                    document.forms.name.focus();
+                    return false;
+                }
+                if (!isNaN(a)) {
+                    alert("Name should be in letters only");
+                    document.forms.name.select();
+                    return false;
+                }
+                if (/[^a-zA-Z0-9\-\/]/.test(a)) {
+                    alert('name can only contain alphabet characters');
+                    return false;
+                }
+                var d = document.forms.mail.value;
+                if (d == "") {
+                    alert("Please, Enter your mail id!!!");
+                    document.forms.mail.focus();
+                    return false;
+                }
+                var atposition = d.indexOf("@");
+                var dotposition = d.lastIndexOf(".");
+                if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= d.length) {
+                    alert("Please enter valid mail address!!!!");
+                    return false;
+                }
+    
+                var p = document.forms.pass.value;
+                if (p == "") {
+                    alert("please, Enter your password!!!");
+                    document.forms.pass.focus();
+                    return false;
+                }
+                var cp = document.forms.cpass.value;
+                if (cp == "") {
+                    alert("Please, Enter your password to confirm!!!");
+                    document.forms.cpass.focus();
+                    return false;
+                }
+                if (p != cp) {
+                    alert("Password not matched please enter correct one!!!!");
+                    document.forms.cpass.focus();
+                    return false;
+                }
+    
+                var m = document.forms.pno.value;
+                if (m == "") {
+                    alert("please, Enter your moblie number!!!");
+                    document.forms.pno.focus();
+                    return false;
+                }
+                else if (m.length < 10 || m.length > 10) {
+                    alert("please enter only 10 digits!");
+                    document.forms.mno.focus();
+                    return false;
+                }
+    
+                var rb = document.forms.gender;
+                var status = 0;
+                for (var i = 0; i < rb.length; i++) {
+                    if (rb[i].checked == true) {
+                        status = 1;
+                    }
+                }
+                if (status == 0) {
+                    alert("select gender");
+                    return false;
+                }
+    
+                var interest = document.forms.course;
+                if (interest.selectedIndex == 0) {
+                    alert("select your course");
+                    document.forms.course.focus();
+                    return false;
+                }
+                var dep = document.forms.dept;
+                if (dep.selectedIndex == 0) {
+                    alert("select your Department");
+                    document.forms.dept.focus();
+                    return false;
+                }
+    
+                return true;
+            }
+        </script>
+        <title>COURSE REGISTRATION</title>
+
+    </head>
+    <body background="https://img.freepik.com/premium-photo/travel-vacation-planning-concept_672855-1431.jpg" style="background-repeat: no-repeat; background-size: cover;">
+        <center>
+        <h2>
+             &nbsp;REGISTRATION PAGE
+        </h2>
+        <form action="action.html" name="forms" onsubmit="return validate()">
+            <label>Name </label> <input type = "text" name = "name" placeholder="Enter your name"><br><br>
+            <label>Mail Id </label><input type = "mail"  name = "mail" placeholder="Enter your mail id"><br><br>
+            <label>Password </label><input type = "password" name = "pass"placeholder="Enter your password"><br><br>
+            <label>Confirm Password </label><input type = "password" name="cpass" placeholder = "Re-enter your password"><br><br>
+            <label>Phone number </label><input type = "number" name = "pno"placeholder="Enter a valid number"><br><br>
+            <label>Nationality </label><input type = "text" placeholder = "Enter a valid nationality"><br><br>
+            <label>Gender </label><input type = "radio" value = "male" name="gender"> Male   <input type="radio" value = "female" name = "gender"> Female <input type="radio" value = "others" name = "gender"> Others <br><br>
+            <label> DOB </label><input type = "date" placeholder="dd-mm-yyyy"><br><br>
+            <label>Year of Study(UG) </label><br>
+            <input type = "radio" value = "I" name="year"> I<br><br>
+            <input type="radio" value = "II" name = "year"> II <br><br>
+            <input type="radio" value = "III" name = "year"> III <br><br>
+            <input type="radio" value = "IV" name = "year"> IV <br><br>
+            <label>Select your department: <label>
+                <select>
+                <option name = "dept" value = "Select a Department">Select a department</option>
+                <option name = "dept" value = "Artificial Intelligence">Artificial Intelligence</option>
+                <option name = "dept" value = "Automobile Engineering">Automobile Engineering</option> 
+                <option name = "dept" value = "Chemical Engineering">Chemical Engineering</option>
+                <option name = "dept" value = "Civil">Civil</option>
+                <option name = "dept" value = "Computer Science">Computer Science</option>
+                <option name = "dept" value = "Computer Science and Design">Computer Science and Design</option>
+                <option name = "dept" value = "Food technology">Food technology</option> 
+                <option name = "dept" value = "Information Technology">Information Technology</option>
+                </select><br><br>
+                <label>Course <label>
+                    <select>
+                    <option name = "course" value = "select a course">Select a course</option>
+                    <option name = "course" value = "C">C</option>
+                    <option name = "course" value = "C++">C++</option>
+                    <option name = "course" value = "HTML">HTML</option>
+                    <option name = "course" value = "Java">Java</option>
+                    <option name = "course" value = "JavaScript">JavaScript</option>
+                    <option name = "course" value = "Python">Python</option>
+                    
+                    </select><br><br>
+            <label for="freeform">Enter your address: </label>
+            <br>
+            <textarea id="freeform" name="freeform" rows="6" cols="70">Enter text address...
+            </textarea><br><br>
+            <label>Submit the form:</label><input type = "submit"><br><br>
+            <label>Reset the details:</label><input type = "reset">
+        </form>
+        </center>
+    </body>
+
+
+</html>
+<!--NAME MAIL MOBILE NUMBER, NATIONALITY GENDER ADDRESS PASSWORD AND CONFIRM PASSWORD DEPARTMENT COURSE(6) DOB  -->
+<!--Name Mailid password confirm password phone number nationality Gender Dob course(6) address-->
