@@ -57,7 +57,7 @@
                 }
                 else if (m.length < 10 || m.length > 10) {
                     alert("please enter only 10 digits!");
-                    document.forms.mno.focus();
+                    document.forms.pno.focus();
                     return false;
                 }
     
@@ -72,13 +72,6 @@
                     alert("select gender");
                     return false;
                 }
-    
-                var interest = document.forms.course;
-                if (interest.selectedIndex == 0) {
-                    alert("select your course");
-                    document.forms.course.focus();
-                    return false;
-                }
                 var dep = document.forms.dept;
                 if (dep.selectedIndex == 0) {
                     alert("select your Department");
@@ -86,6 +79,14 @@
                     return false;
                 }
     
+    
+                var interest = document.forms.course;
+                if (interest.selectedIndex == 0) {
+                    alert("select your course");
+                    document.forms.course.focus();
+                    return false;
+                }
+                
                 return true;
             }
         </script>
@@ -112,7 +113,7 @@
             <input type="radio" value = "III" name = "year"> III <br><br>
             <input type="radio" value = "IV" name = "year"> IV <br><br>
             <label>Select your department: <label>
-                <select>
+                <select name="dept">
                 <option name = "dept" value = "Select a Department">Select a department</option>
                 <option name = "dept" value = "Artificial Intelligence">Artificial Intelligence</option>
                 <option name = "dept" value = "Automobile Engineering">Automobile Engineering</option> 
@@ -124,7 +125,7 @@
                 <option name = "dept" value = "Information Technology">Information Technology</option>
                 </select><br><br>
                 <label>Course <label>
-                    <select>
+                    <select name="course">
                     <option name = "course" value = "select a course">Select a course</option>
                     <option name = "course" value = "C">C</option>
                     <option name = "course" value = "C++">C++</option>
@@ -146,5 +147,3 @@
 
 
 </html>
-<!--NAME MAIL MOBILE NUMBER, NATIONALITY GENDER ADDRESS PASSWORD AND CONFIRM PASSWORD DEPARTMENT COURSE(6) DOB  -->
-<!--Name Mailid password confirm password phone number nationality Gender Dob course(6) address-->
